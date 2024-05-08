@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="503" y="254" name="users">
+</datatypes><table x="527" y="302" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -55,6 +55,9 @@
 <default>NULL</default></row>
 <row name="pesquisador" null="1" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="gender" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -77,6 +80,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
+<row name="gender" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -109,7 +115,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="649" y="52" name="sign_up">
+<table x="675" y="52" name="sign_up">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -129,6 +135,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
+<row name="gender" null="1" autoincrement="0">
+<datatype>VARCHAR(50)</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

@@ -1,0 +1,169 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'users'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `users`;
+		
+CREATE TABLE `users` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `age` INTEGER(30) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `admin` VARCHAR(100) NULL DEFAULT NULL,
+  `pesquisador` VARCHAR(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'dogs'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `dogs`;
+		
+CREATE TABLE `dogs` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `breed` VARCHAR(50) NULL DEFAULT NULL,
+  `age` INTEGER(30) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'address'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `address`;
+		
+CREATE TABLE `address` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `street` VARCHAR(100) NULL DEFAULT NULL,
+  `number` VARCHAR(50) NULL DEFAULT NULL,
+  `city` VARCHAR(100) NULL DEFAULT NULL,
+  `state` VARCHAR NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'sign_up'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `sign_up`;
+		
+CREATE TABLE `sign_up` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR NULL DEFAULT NULL,
+  `birthday` DATE(50) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `password` VARCHAR(100) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'sign_in'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `sign_in`;
+		
+CREATE TABLE `sign_in` (
+  `id` INTEGER NULL DEFAULT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `password` VARCHAR(100) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY ()
+);
+
+-- ---
+-- Table 'forms'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `forms`;
+		
+CREATE TABLE `forms` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `question` VARCHAR(200) NULL DEFAULT NULL,
+  `anwser` VARCHAR(200) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `had_dogs` VARCHAR(50) NULL DEFAULT NULL,
+  `will_have_dogs` VARCHAR(50) NULL DEFAULT NULL,
+  `have_dogs` VARCHAR(50) NULL DEFAULT NULL,
+  `id_dogs` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'dashboard'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `dashboard`;
+		
+CREATE TABLE `dashboard` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `description` VARCHAR(100) NULL DEFAULT NULL,
+  `charts` VARBINARY NULL DEFAULT NULL,
+  `label` VARCHAR(100) NULL DEFAULT NULL,
+  `anwsers` INTEGER(30) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `id_forms` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `dogs` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `address` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `sign_up` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `sign_in` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `forms` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `forms` ADD FOREIGN KEY (id_dogs) REFERENCES `dogs` (`id`);
+ALTER TABLE `dashboard` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `dashboard` ADD FOREIGN KEY (id_forms) REFERENCES `forms` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `dogs` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `address` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `sign_up` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `sign_in` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `forms` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `dashboard` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `users` (`id`,`name`,`age`,`email`,`admin`,`pesquisador`) VALUES
+-- ('','','','','','');
+-- INSERT INTO `dogs` (`id`,`name`,`breed`,`age`,`id_users`) VALUES
+-- ('','','','','');
+-- INSERT INTO `address` (`id`,`street`,`number`,`city`,`state`,`id_users`) VALUES
+-- ('','','','','','');
+-- INSERT INTO `sign_up` (`id`,`name`,`birthday`,`email`,`password`,`id_users`) VALUES
+-- ('','','','','','');
+-- INSERT INTO `sign_in` (`id`,`name`,`password`,`id_users`) VALUES
+-- ('','','','');
+-- INSERT INTO `forms` (`id`,`question`,`anwser`,`id_users`,`had_dogs`,`will_have_dogs`,`have_dogs`,`id_dogs`) VALUES
+-- ('','','','','','','','');
+-- INSERT INTO `dashboard` (`id`,`description`,`charts`,`label`,`anwsers`,`id_users`,`id_forms`) VALUES
+-- ('','','','','','','');

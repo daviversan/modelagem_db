@@ -1,225 +1,176 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: https://sql.toad.cz/ -->
-<sql>
-<datatypes db="mysql">
-	<group label="Numeric" color="rgb(238,238,170)">
-		<type label="Integer" length="0" sql="INTEGER" quote=""/>
-	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
-	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
-	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
-	 	<type label="INT" length="0" sql="INT" quote=""/>
-		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
-		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
-		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
-		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-	</group>
+-- ---
+-- Globals
+-- ---
 
-	<group label="Character" color="rgb(255,200,200)">
-		<type label="Char" length="1" sql="CHAR" quote="'"/>
-		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
-		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
-		<type label="Binary" length="1" sql="BINARY" quote="'"/>
-		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
-		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
-	</group>
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
 
-	<group label="Date &amp; Time" color="rgb(200,255,200)">
-		<type label="Date" length="0" sql="DATE" quote="'"/>
-		<type label="Time" length="0" sql="TIME" quote="'"/>
-		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
-		<type label="Year" length="0" sql="YEAR" quote=""/>
-		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
-	</group>
-	
-	<group label="Miscellaneous" color="rgb(200,200,255)">
-		<type label="ENUM" length="1" sql="ENUM" quote=""/>
-		<type label="SET" length="1" sql="SET" quote=""/>
-		<type label="Bit" length="0" sql="bit" quote=""/>
-	</group>
-</datatypes><table x="527" y="302" name="users">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="age" null="1" autoincrement="0">
-<datatype>INTEGER(30)</datatype>
-<default>NULL</default></row>
-<row name="email" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="admin" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="pesquisador" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="gender" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="352" y="300" name="dogs">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="breed" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="age" null="1" autoincrement="0">
-<datatype>INTEGER(30)</datatype>
-<default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="gender" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="733" y="502" name="address">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="street" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="number" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="city" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="state" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="id_sign_up" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="sign_up" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="675" y="52" name="sign_up">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="birthday" null="1" autoincrement="0">
-<datatype>DATE(50)</datatype>
-<default>NULL</default></row>
-<row name="email" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="password" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="gender" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="700" y="301" name="sign_in">
-<row name="id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="password" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="id_sign_up" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="sign_up" row="id" />
-</row>
-<key type="PRIMARY" name="">
-</key>
-</table>
-<table x="333" y="31" name="forms">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="question" null="1" autoincrement="0">
-<datatype>VARCHAR(200)</datatype>
-<default>NULL</default></row>
-<row name="anwser" null="1" autoincrement="0">
-<datatype>VARCHAR(200)</datatype>
-<default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="had_dogs" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="will_have_dogs" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="have_dogs" null="1" autoincrement="0">
-<datatype>VARCHAR(50)</datatype>
-<default>NULL</default></row>
-<row name="id_dogs" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="dogs" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="327" y="500" name="dashboard">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="description" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="charts" null="1" autoincrement="0">
-<datatype>VARBINARY</datatype>
-<default>NULL</default></row>
-<row name="label" null="1" autoincrement="0">
-<datatype>VARCHAR(100)</datatype>
-<default>NULL</default></row>
-<row name="anwsers" null="1" autoincrement="0">
-<datatype>INTEGER(30)</datatype>
-<default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="id_forms" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="forms" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-</sql>
+-- ---
+-- Table 'users'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `users`;
+		
+CREATE TABLE `users` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `age` INTEGER(30) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `admin` VARCHAR(100) NULL DEFAULT NULL,
+  `pesquisador` VARCHAR(100) NULL DEFAULT NULL,
+  `gender` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'dogs'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `dogs`;
+		
+CREATE TABLE `dogs` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `breed` VARCHAR(50) NULL DEFAULT NULL,
+  `age` INTEGER(30) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `gender` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'address'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `address`;
+		
+CREATE TABLE `address` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `street` VARCHAR(100) NULL DEFAULT NULL,
+  `number` VARCHAR(50) NULL DEFAULT NULL,
+  `city` VARCHAR(100) NULL DEFAULT NULL,
+  `state` VARCHAR NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `id_sign_up` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'sign_up'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `sign_up`;
+		
+CREATE TABLE `sign_up` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR NULL DEFAULT NULL,
+  `birthday` DATE(50) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
+  `password` VARCHAR(100) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `gender` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'sign_in'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `sign_in`;
+		
+CREATE TABLE `sign_in` (
+  `id` INTEGER NULL DEFAULT NULL,
+  `name` VARCHAR(50) NULL DEFAULT NULL,
+  `password` VARCHAR(100) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `id_sign_up` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY ()
+);
+
+-- ---
+-- Table 'forms'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `forms`;
+		
+CREATE TABLE `forms` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `question` VARCHAR(200) NULL DEFAULT NULL,
+  `anwser` VARCHAR(200) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `had_dogs` VARCHAR(50) NULL DEFAULT NULL,
+  `will_have_dogs` VARCHAR(50) NULL DEFAULT NULL,
+  `have_dogs` VARCHAR(50) NULL DEFAULT NULL,
+  `id_dogs` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'dashboard'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `dashboard`;
+		
+CREATE TABLE `dashboard` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `description` VARCHAR(100) NULL DEFAULT NULL,
+  `charts` VARBINARY NULL DEFAULT NULL,
+  `label` VARCHAR(100) NULL DEFAULT NULL,
+  `anwsers` INTEGER(30) NULL DEFAULT NULL,
+  `id_users` INTEGER NULL DEFAULT NULL,
+  `id_forms` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `dogs` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `address` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `address` ADD FOREIGN KEY (id_sign_up) REFERENCES `sign_up` (`id`);
+ALTER TABLE `sign_up` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `sign_in` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `sign_in` ADD FOREIGN KEY (id_sign_up) REFERENCES `sign_up` (`id`);
+ALTER TABLE `forms` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `forms` ADD FOREIGN KEY (id_dogs) REFERENCES `dogs` (`id`);
+ALTER TABLE `dashboard` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `dashboard` ADD FOREIGN KEY (id_forms) REFERENCES `forms` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `dogs` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `address` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `sign_up` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `sign_in` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `forms` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `dashboard` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `users` (`id`,`name`,`age`,`email`,`admin`,`pesquisador`,`gender`) VALUES
+-- ('','','','','','','');
+-- INSERT INTO `dogs` (`id`,`name`,`breed`,`age`,`id_users`,`gender`) VALUES
+-- ('','','','','','');
+-- INSERT INTO `address` (`id`,`street`,`number`,`city`,`state`,`id_users`,`id_sign_up`) VALUES
+-- ('','','','','','','');
+-- INSERT INTO `sign_up` (`id`,`name`,`birthday`,`email`,`password`,`id_users`,`gender`) VALUES
+-- ('','','','','','','');
+-- INSERT INTO `sign_in` (`id`,`name`,`password`,`id_users`,`id_sign_up`) VALUES
+-- ('','','','','');
+-- INSERT INTO `forms` (`id`,`question`,`anwser`,`id_users`,`had_dogs`,`will_have_dogs`,`have_dogs`,`id_dogs`) VALUES
+-- ('','','','','','','','');
+-- INSERT INTO `dashboard` (`id`,`description`,`charts`,`label`,`anwsers`,`id_users`,`id_forms`) VALUES
+-- ('','','','','','','');

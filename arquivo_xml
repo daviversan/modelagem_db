@@ -81,7 +81,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="701" y="501" name="address">
+<table x="733" y="502" name="address">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -101,11 +101,15 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
+<row name="id_sign_up" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sign_up" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="702" y="74" name="sign_up">
+<table x="649" y="52" name="sign_up">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -129,7 +133,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="701" y="300" name="sign_in">
+<table x="700" y="301" name="sign_in">
 <row name="id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -142,6 +146,10 @@
 <row name="id_users" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
+</row>
+<row name="id_sign_up" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sign_up" row="id" />
 </row>
 <key type="PRIMARY" name="">
 </key>

@@ -52,6 +52,7 @@ CREATE TABLE `address` (
   `city` VARCHAR(100) NULL DEFAULT NULL,
   `state` VARCHAR NULL DEFAULT NULL,
   `id_users` INTEGER NULL DEFAULT NULL,
+  `id_sign_up` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -84,6 +85,7 @@ CREATE TABLE `sign_in` (
   `name` VARCHAR(50) NULL DEFAULT NULL,
   `password` VARCHAR(100) NULL DEFAULT NULL,
   `id_users` INTEGER NULL DEFAULT NULL,
+  `id_sign_up` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY ()
 );
 
@@ -130,8 +132,10 @@ CREATE TABLE `dashboard` (
 
 ALTER TABLE `dogs` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
 ALTER TABLE `address` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `address` ADD FOREIGN KEY (id_sign_up) REFERENCES `sign_up` (`id`);
 ALTER TABLE `sign_up` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
 ALTER TABLE `sign_in` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
+ALTER TABLE `sign_in` ADD FOREIGN KEY (id_sign_up) REFERENCES `sign_up` (`id`);
 ALTER TABLE `forms` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
 ALTER TABLE `forms` ADD FOREIGN KEY (id_dogs) REFERENCES `dogs` (`id`);
 ALTER TABLE `dashboard` ADD FOREIGN KEY (id_users) REFERENCES `users` (`id`);
@@ -157,12 +161,12 @@ ALTER TABLE `dashboard` ADD FOREIGN KEY (id_forms) REFERENCES `forms` (`id`);
 -- ('','','','','','');
 -- INSERT INTO `dogs` (`id`,`name`,`breed`,`age`,`id_users`) VALUES
 -- ('','','','','');
--- INSERT INTO `address` (`id`,`street`,`number`,`city`,`state`,`id_users`) VALUES
--- ('','','','','','');
+-- INSERT INTO `address` (`id`,`street`,`number`,`city`,`state`,`id_users`,`id_sign_up`) VALUES
+-- ('','','','','','','');
 -- INSERT INTO `sign_up` (`id`,`name`,`birthday`,`email`,`password`,`id_users`) VALUES
 -- ('','','','','','');
--- INSERT INTO `sign_in` (`id`,`name`,`password`,`id_users`) VALUES
--- ('','','','');
+-- INSERT INTO `sign_in` (`id`,`name`,`password`,`id_users`,`id_sign_up`) VALUES
+-- ('','','','','');
 -- INSERT INTO `forms` (`id`,`question`,`anwser`,`id_users`,`had_dogs`,`will_have_dogs`,`have_dogs`,`id_dogs`) VALUES
 -- ('','','','','','','','');
 -- INSERT INTO `dashboard` (`id`,`description`,`charts`,`label`,`anwsers`,`id_users`,`id_forms`) VALUES

@@ -1,8 +1,17 @@
 # Modelagem do banco de dados
+**Projeto:** Abandono Zero
+
+**Data:** 2024-05-09
+
+**Autor:** Davi D'avila Versan
+
+**Objetivo:** Descrever o modelo relacional do projeto de forma resumida e simplificada.
+
+
 ## SQL Designer
 <img src="new_model2.png">
 
-## Entidades 
+## Entidades
 ### Users
 &nbsp;&nbsp;&nbsp;&nbsp; Entidade central do modelo, em que todas as conexões são efetuadas. Contém os seguintes atributos:
 - ``` id: ``` Código de identificação único para cada usuário
